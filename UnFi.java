@@ -1,5 +1,7 @@
-import java.util.Scanner;
 import java.util.Random;
+import java.util.Scanner;
+import java.util.HashMap;
+
 class unifind{
     private int[] id;
     private int[] sz;
@@ -37,8 +39,8 @@ class Percolation {
     public Percolation(int n){
         perc = new int[n][n];
         N=n;
-        for (int i =n; i < n; i++) {
-            for (int j =n; j < n; j++) {
+        for (int i =0; i < n; i++) {
+            for (int j =0; j < n; j++) {
                 perc[i][j] = 1;
             }
         }
@@ -77,19 +79,19 @@ class Percolation {
         return open;
     }
     // does the system percolate?
-    public boolean  percolates(){
-
+    public boolean percolates(){
+        return true;
     }
 
-    // test client (optional)
+    //visual display
     public void display(){
         for(int i = 0; i<N; i++){
             for(int j = 0; j<N; j++){
                 if(perc[i][j]==0){
-                    System.out.println("⬜");
+                    System.out.print("O");
                 }
                 else{
-                    System.out.println("⬛");
+                    System.out.print("X");
                 }
             }
             System.out.println("\n");
@@ -100,23 +102,33 @@ class Percolation {
 public class UnFi {
     public static void main(String[] args) {
         Scanner scanned = new Scanner(System.in);
+        Random rand = new Random();
         int N = scanned.nextInt();
         int i = 0, j=0;
+        int[] loop = new int[N];
         unifind neu = new unifind(N);
         Percolation peu = new Percolation(N);
+        HashMap<Integer,int[]> hash = new HashMap<>();
+        for (int l = 0; l < 10; l++) {
+            loop[l] = l+1;
+        }
+        for (int l = 0; l < 10;l++) {
+            hash.put(l,loop);
+        }
+       
+        /*
         while(scanned.hasNext()){
             i = scanned.nextInt();
             j = scanned.nextInt();
             neu.union(i, j);
         }
-        j = 1;
-        for(i = 0;i<N;i++){
-            if(neu.find(j, i)){
-                System.out.print(j);
-                System.out.print(" is connected to ");
-                System.out.print(i);
-                System.out.print("\n");
-            }
+        */
+        for(int x = 0; x<20; x++){
+            i = rand.nextInt(N);
+            j = rand.nextInt(N);
+            System.out.println(i+","+j);
+            peu.open(i, j);
         }
+        peu.display();
     }
 }
