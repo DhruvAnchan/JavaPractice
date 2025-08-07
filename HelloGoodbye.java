@@ -7,5 +7,6 @@ class HelloGoodbye {
         String inp = scanned.nextLine();
         System.out.print("\nGood morning ");
         System.out.println(inp);
+        scanned.close();
     }
 }
