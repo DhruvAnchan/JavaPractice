@@ -29,6 +29,10 @@ public class demo {
     }
 
     public static void main(String[] args) {
-        
+        int[] arr = {1,4,2,6,4,7,9};
+        quicksort(arr, 0, arr.length-1);
+        for(int num:arr){
+            System.out.print(num);
+        }
     }
 }
