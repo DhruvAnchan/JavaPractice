@@ -1,2 +1,2 @@
 # JavaPractice
-Just Practice for Algorithms
+>Just Practice for Algorithms and Java
